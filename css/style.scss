@@ -1,0 +1,313 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+li,
+a {
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+img,
+picture,
+svg,
+video {
+    max-width: 100%;
+}
+
+// Variable --------------------------------
+:root {
+    --primary-color: green;
+    --white-color: #ffff;
+    --black-color: black;
+}
+
+// Common ------------------------------------------------------
+.overlay {
+    background: rgba(7, 10, 12, .72);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.common__Title {
+    position: relative;
+    padding: 5rem 0px;
+    z-index: 11;
+    max-width: 750px;
+}
+
+#section3 .common__Title {
+    color: var(--white-color) !important;
+}
+
+// -------------------------------------------------------
+
+header {
+    position: absolute;
+    z-index: 11;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 100%;
+
+    .logo {
+        i {
+            color: green;
+            font-size: 2.5rem;
+        }
+
+        span {
+            font-size: 2rem;
+        }
+
+    }
+
+    .navbar {
+
+        .active {
+            color: var(--primary-color) !important;
+        }
+
+        li {
+            margin: 0 10px;
+
+            a {
+                position: relative;
+                color: var(--white-color) !important;
+                transition: all 0.5s ease;
+            }
+
+            a::after {
+                content: "";
+                width: 0%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                background-color: var(--primary-color);
+                transition: all 0.5s ease;
+            }
+
+            a:hover::after {
+                width: 100%;
+            }
+
+            a:hover {
+                color: var(--primary-color) !important;
+            }
+        }
+    }
+}
+
+main {
+
+    // Carousel
+    #section1 {
+
+        .carousel-indicators li {
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+        }
+
+        .carousel-item {
+            background-size: cover;
+            background-position: center;
+            color: var(--white-color);
+            text-align: center;
+            height: 100vh;
+
+            .carousel-caption-thumb {
+                transform: translateY(200%);
+            }
+
+            img {
+                border-radius: 50%;
+                width: 120px;
+                display: inline-block;
+            }
+        }
+
+        .carousel-item:first-child {
+            background-image: url(../images/mountains.jpg);
+
+        }
+
+        .carousel-item:nth-child(2) {
+            background-image: url(../images/mountains-1.jpg);
+
+        }
+
+        .carousel-item:nth-child(3) {
+            background-image: url(../images/finland.jpg);
+
+        }
+    }
+
+    // Portfolio
+    #section2 {
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .nav-item {
+            a {
+                border: 1px solid var(--black-color);
+            }
+
+            .active {
+                background-color: var(--primary-color);
+                border: 1px solid var(--primary-color);
+            }
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 0.4rem rgb(0 0 0 / 13%);
+            cursor: pointer;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 1.25rem;
+
+
+
+            transition: all 0.25s;
+            border: 1px solid transparent;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .card:hover {
+            h3 {
+                color: var(--primary-color);
+            }
+
+            .card-body {
+                border-radius: 0 0 20px 20px;
+                border-color: solid var(--primary-color);
+                border-top-color: transparent;
+            }
+
+        }
+    }
+
+    #section1 {}
+
+    // Feature
+    #section3 {
+        background-repeat: no-repeat;
+        max-width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+        background-image: url(../images/3.jpg);
+        color: var(--white-color);
+
+        .feature__Content {
+            padding: 100px 0 120px;
+        }
+
+        .feature__Item {
+            padding: 40px 40px;
+            transition: .3s;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .1);
+            backdrop-filter: blur(3px);
+            transition: all .5s;
+
+            i {
+                font-size: 48px;
+                color: #35a22c;
+            }
+        }
+
+        .feature__Item:hover {
+            background: var(--black-color);
+            border: 1px solid var(--white-color);
+        }
+    }
+
+    #section4 {
+        position: relative;
+        padding: 70px 0;
+
+        .award {
+            background-image: url(../images/memphis_3.png);
+            background-position: bottom left;
+            background-repeat: no-repeat;
+            background-size: 50% auto;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .award__Left{            
+            align-items: center;
+            background-color: red;
+            height: 100%;
+        }
+
+        .award__Right{
+            background-color: grey;
+        }
+    }
+
+    // pc: width >= 1024px
+    @media screen and (min-width: 1025px) {
+
+        .h5 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+    }
+
+    //tablet: 740<= width < 1024
+    @media screen and (min-width: 740px) and (max-width: 1024px) {
+        .h5 {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+    }
+
+    //moblie: width < 740px
+    @media screen and (max-width: 739px) {
+        .h5 {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+    }
+}
